@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "d:dev": "bun server.ts",
     "build": "next build",
     "b:start": "bun run server.ts",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rm -rf dist && echo 'Done.'"
   },
   "dependencies": {
     "figlet": "^1.7.0",
