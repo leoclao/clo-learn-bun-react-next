@@ -2,6 +2,7 @@
   "name": "clo-learn-bun-react-next",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "bun@1.0.13",
   "scripts": {
     "dev": "next dev",
     "d:dev": "bun server.ts",
@@ -12,19 +13,22 @@
     "clean": "rm -rf dist && echo 'Done.'"
   },
   "dependencies": {
+    "clsx": "^2.0.0",
     "figlet": "^1.7.0",
-    "next": "14.0.1",
+    "next": "latest",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sass": "^1.69.5"
   },
   "devDependencies": {
-    "@types/figlet": "^1.5.7",
-    "@types/node": "^20.8.9",
-    "@types/react": "^18.2.33",
-    "@types/react-dom": "^18.2.14",
-    "bun-types": "^1.0.7",
-    "eslint": "^8.52.0",
+    "@types/figlet": "^1.5.8",
+    "@types/node": "^20.9.0",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "bun-types": "^1.0.11",
+    "eslint": "^8.53.0",
     "eslint-config-next": "14.0.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "typescript": "^5.2.2"
   }
 }
