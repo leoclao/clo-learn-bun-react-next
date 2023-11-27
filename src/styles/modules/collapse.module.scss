@@ -1,0 +1,37 @@
+.base {
+  display: grid;
+
+  &:hover {
+    .body {
+      grid-template-rows: 1fr;
+    }
+  }
+}
+
+.header {
+  display: grid;
+}
+
+.body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 250ms grid-template-rows ease;
+
+  &> * {
+    overflow: hidden;
+  }
+}
+
+.vertical {
+  grid-template-rows: 0fr;
+}
+
+.horizontal {
+  grid-template-rows: 0fr;
+}
+
+.collapsed {
+  .body {
+    grid-template-rows: 1fr;
+  }
+}

@@ -73,14 +73,14 @@ const Button: React.FC<Props> = ({
   });
 
   const renderLabel = () => {
-    const newLabel = icon ? `${<label className={labelClass}>{label}</label>}` : `${label}`;
+    const newLabel = !!icon ? <label className={labelClass}>{label}</label> : label;
 
     return newLabel;
   }
 
   return (
     <button className={baseClass}  onClick={onClick} disabled={isDisable}>
-      {icon && {icon}}
+      {icon}
       {label && renderLabel()}
     </button>
   );

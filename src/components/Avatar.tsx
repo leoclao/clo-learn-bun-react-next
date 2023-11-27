@@ -38,6 +38,6 @@ const Avatar: React.FC<Props> = ({
       />
     </span>
   )
-}
+};
 
 export default Avatar;

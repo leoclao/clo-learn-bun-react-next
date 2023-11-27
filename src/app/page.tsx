@@ -3,14 +3,14 @@ import Components from '@/components';
 import styles from './page.module.css'
 
 export default function Home() {
-
+  const newIcon = <i className="fa fa-star"></i>;
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
-          <Components.Button />
+          <Components.Button icon={newIcon} />
           <Components.Tag />
         </p>
         <div>
