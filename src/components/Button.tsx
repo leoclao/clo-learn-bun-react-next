@@ -8,7 +8,7 @@ interface Props extends ButtonHTMLAttributes<ButtonHTMLAttributes> {
   label: string;
   desc: string;
   isDisable?: boolean;
-  type: string;
+  type: ButtonHTMLAttributes;
   isHollow?: boolean;
   isVertical?: boolean;
   size?: string;
@@ -81,7 +81,7 @@ const Button: React.FC<Props> = ({
   }
 
   return (
-    <button className={baseClass}  onClick={onClick} disabled={isDisable} type={type}>
+    <button className={baseClass} onClick={onClick} disabled={isDisable} type={type} title={desc}>
       {icon}
       {label && renderLabel()}
     </button>

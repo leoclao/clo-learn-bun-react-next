@@ -4,16 +4,23 @@ import styles from '@/styles/modules/grid.module.scss';
 
 interface Props {
   children: React.ReactElement;
-  display: string;
+  cols: string | undefined,
+  rows: string | undefined,
+  gap: string | undefined
 }
 
 const Grid: React.FC<Props> = ({
   children,
-  display = 'base',
+  cols,
+  rows,
+  gap
 }) => {
-  const baseClass = clsx({
-    [`${styles[`${display}`]}`]: !!display
-  });
+  const baseClass = clsx(
+    styles.base,
+    !!cols && styles[`cols${cols}`],
+    !!rows && styles[`rows${rows}`],
+    !!gap && styles[`gap${gap}`],
+  );
   // return (Children.map(children, child => <div className={baseClass}>{child}</div>));
   return (<div className={baseClass}>{children}</div>);
 };
