@@ -8,6 +8,7 @@ interface Props extends ButtonHTMLAttributes<ButtonHTMLAttributes> {
   label: string;
   desc: string;
   isDisable?: boolean;
+  type: ButtonHTMLAttributes;
   isHollow?: boolean;
   isVertical?: boolean;
   size?: string;
@@ -24,9 +25,10 @@ const Button: React.FC<Props> = ({
   label = 'Button',
   desc = 'Button Action',
   isDisable = false,
+  type = 'button',
   isHollow = false,
   isVertical = false,
-  size,
+  size = 'md',
   theme,
   rounded,
   modifierClass,
@@ -57,30 +59,30 @@ const Button: React.FC<Props> = ({
   const roundsClass = [];
   const setRounded = () => roundsClass[rounds.indexOf(rounded)];
 
-  const baseClass = clsx({
-    [`${styles.base}`]: !childTotal && !modifierClass,
-    [`${styles.baseTotal}`]: !!childTotal && !modifierClass,
-    [`${styles.hollow}`]: !!isHollow && !modifierClass,
-    [`${styles.vertical}`]: !!isVertical && !!childTotal && !modifierClass,
-    [`${setSize()}`]: !!size && !modifierClass,
-    [`${setTheme()}`]: !!theme && !modifierClass,
-    [`${setRounded()}`]: !!rounded && !modifierClass,
-    [`${modifierClass}`]: !!modifierClass
-  });
+  const baseClass = clsx(
+    (!childTotal && !modifierClass) && styles.base,
+    (!!childTotal && !modifierClass) && styles.baseTotal,
+    (!!isHollow && !modifierClass) && styles.hollow,
+    (!!isVertical && !!childTotal && !modifierClass) && styles.vertical,
+    (!!size && !modifierClass) && [`${setSize()}`],
+    (!!theme && !modifierClass) && setTheme(),
+    (!!rounded && !modifierClass) && setRounded(),
+    !!modifierClass && modifierClass
+  );
   const labelClass = clsx({
     [`${styles.label}`]: !modifierLabelClass,
     [`${modifierLabelClass}`]: !!modifierLabelClass,
   });
 
   const renderLabel = () => {
-    const newLabel = icon ? `${<label className={labelClass}>{label}</label>}` : `${label}`;
+    const newLabel = !!icon ? <label className={labelClass}>{label}</label> : label;
 
     return newLabel;
   }
 
   return (
-    <button className={baseClass}  onClick={onClick} disabled={isDisable}>
-      {icon && {icon}}
+    <button className={baseClass} onClick={onClick} disabled={isDisable} type={type} title={desc}>
+      {icon}
       {label && renderLabel()}
     </button>
   );

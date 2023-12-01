@@ -1,1 +1,1 @@
-import { Size } from "./enum";
+import { Size, ThemesMode } from "./enum";
