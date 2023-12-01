@@ -1,0 +1,38 @@
+.container {
+  display: block;
+  padding: 48px 120px;
+}
+
+.board {
+  // width: 280px;
+  max-width: max-content;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: .5rem;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  line-height: 1.2;
+  height: 48px;
+  padding: 0;
+  text-align: center;
+  width: 48px;
+  cursor: pointer;
+}
+
+.playerStatus {
+  display: flex;
+  width: 100%;
+  // text-align: left;
+  // justify-content: flex-start;
+}
+
+.info {
+  display: flex;
+}
