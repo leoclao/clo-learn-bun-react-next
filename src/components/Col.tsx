@@ -4,18 +4,24 @@ import styles from '@/styles/modules/col.module.scss';
 
 interface Props {
   children: React.ReactElement;
-  colSpan?: number;
+  colSpan?: string | undefined;
 }
 
 const Col: React.FC<Props> = ({
   children,
   colSpan
 }) => {
-  const baseClass = clsx(styles.base);
+  const className = clsx(
+    !colSpan && styles.base,
+    !!colSpan && styles[`span${colSpan}`]
+  );
 
-  return (Children.map(children, child =>
-    <div className={baseClass}>{child}</div>
-  ));
+  // return (Children.map(children, child =>
+  //   <div className={baseClass}>{child}</div>
+  // ));
+  return (
+    <div className={className}>{children}</div>
+  );
 }
 
 export default Col;
