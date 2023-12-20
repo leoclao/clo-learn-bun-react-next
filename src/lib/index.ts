@@ -1,1 +1,1 @@
-import { checkValueArray } from './check-value';
+import * as checkValue from './check-value';

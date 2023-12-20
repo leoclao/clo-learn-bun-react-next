@@ -9,20 +9,20 @@ interface Props {
   gap: string | undefined
 }
 
-const Grid: React.FC<Props> = ({
+export default function Grid({
   children,
   cols,
   rows,
   gap
-}) => {
+}: Props) {
   const baseClass = clsx(
     styles.base,
     !!cols && styles[`cols${cols}`],
     !!rows && styles[`rows${rows}`],
     !!gap && styles[`gap${gap}`],
   );
-  // return (Children.map(children, child => <div className={baseClass}>{child}</div>));
+  
   return (<div className={baseClass}>{children}</div>);
 };
 
-export default Grid;
+// export default Grid;

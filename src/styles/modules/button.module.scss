@@ -1,8 +1,65 @@
 .base {
-  padding: 0.5em 0.75em;
+  // padding: 0.5em 0.75em;
   cursor: pointer;
 }
 
-.md {
-  padding: 0.5em 0.75em;
+// Size: height, padding, font-size, line-height, spacing
+.xs {
+  height: 1rem;
+  padding: .125rem .325rem;
 }
+
+.sm {
+  height: 1.5rem;
+  padding: .25rem .5rem;
+}
+
+.md {
+  height: 2.25rem;
+  padding: .325rem .875rem;
+}
+
+.lg {
+  height: 4rem;
+}
+
+.xl {
+  height: 6.5rem;
+}
+
+// Rounded
+.rounded {
+  &-xs {
+    border-radius: 3px;
+  }
+
+  &-sm {
+    border-radius: 6px;
+  }
+
+  &-md {
+    border-radius: 9px;
+  }
+
+  &-lg {
+    border-radius: 15px;
+  }
+
+  &-xl {
+    border-radius: 24px;
+  }
+
+  &-xxl {
+    border-radius: 39px;
+  }
+
+  &-xxxl {
+    border-radius: 63px;
+  }
+
+  &-full {
+    border-radius: 9999px;
+  }
+}
+
+// Hollow + Theme

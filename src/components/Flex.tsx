@@ -13,7 +13,7 @@ interface Props {
   gap?: string | undefined
 }
 
-const Flex: React.FC<Props> = ({
+export default function Flex({
   children,
   // basis,
   direction,
@@ -22,7 +22,7 @@ const Flex: React.FC<Props> = ({
   // grow,
   // shrink,
   gap
-}) => {
+}: Props) {
   const baseClass = clsx(
     styles.b,
     // !!basis && styles[`${basis}`],
@@ -37,4 +37,4 @@ const Flex: React.FC<Props> = ({
   return (<div className={baseClass}>{children}</div>);
 };
 
-export default Flex;
+// export default Flex;
