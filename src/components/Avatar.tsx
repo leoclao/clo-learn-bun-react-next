@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import clsx from "clsx";
-import { checkValueArray } from "@/lib";
-import { Size } from "@/types";
+// import { checkValue } from "@/lib";
+import Types from "@/types";
 import styles from "@/styles/modules/avatar.module.scss";
 
 interface Props {
@@ -10,23 +10,27 @@ interface Props {
   shortDesc: string;
   imgW?: number;
   imgH?: number;
-  size: Size;
+  size: Types.Sizes;
+  theme: Types.Themes;
   aspectRatio?: string;
 }
 
-const Avatar: React.FC<Props> = ({
+export default function Avatar({
   src,
   shortDesc = 'Short description for Image',
   imgW,
   imgH,
   size = 'md',
-  aspectRatio
-}) => {
-  type sizeString = keyof typeof Size;
-  // const isSize = checkValueArray(size, Size);
-  // console.log(sizeString);
-  // console.log(isSize);
-  const baseClass = clsx(styles.base, size && styles[`${size}`]);
+  theme = 'default',
+  aspectRatio = 'auto',
+}: Props) {
+  const isSizeExists = () => Object.values(Types.Sizes).includes(size) && true;
+  const isThemeExists = () => Object.values(Types.Themes).includes(theme) && true;
+  const baseClass = clsx(
+    styles.base,
+    !!isSizeExists && styles[`${size}`],
+    !!isThemeExists && styles[`${theme}`]
+  );
 
   return (
     <span className={baseClass}>
@@ -40,4 +44,4 @@ const Avatar: React.FC<Props> = ({
   )
 };
 
-export default Avatar;
+// export default Avatar;

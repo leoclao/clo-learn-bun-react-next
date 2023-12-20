@@ -7,3 +7,25 @@
     flex-basis: 0;
   }
 }
+
+.col {
+  flex-direction: column;
+}
+
+.gap {
+  &0 {
+    gap: 0;
+  }
+  &1 {
+    gap: .25rem;
+  }
+  &2 {
+    gap: .5rem;
+  }
+  &3 {
+    gap: .75rem;
+  }
+  &4 {
+    gap: 1rem;
+  }
+}

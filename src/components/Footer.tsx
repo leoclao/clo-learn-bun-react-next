@@ -2,15 +2,13 @@ import React from "react";
 
 interface Props {
   className: string,
-  content: React.ReactNode,
+  children: React.ReactElement,
 }
 
-export default function Header({ className, content }: Props) {
+export default function Footer({ className, children }: Props) {
   return (
     <header className={className}>
-      {content}
+      {children}
     </header>
   );
 }
-
-// export default Header;

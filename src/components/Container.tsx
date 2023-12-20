@@ -7,7 +7,7 @@ interface Props {
   modifierClass: string | undefined;
 }
 
-const Container: React.FC<Props> = ({ children, modifierClass }) => {
+export default function Container({ children, modifierClass }: Props) {
   const baseClass = clsx(
     !modifierClass && styles.b,
     modifierClass
@@ -16,4 +16,4 @@ const Container: React.FC<Props> = ({ children, modifierClass }) => {
   return <div className={baseClass}>{children}</div>
 };
 
-export default Container;
+// export default Container;

@@ -17,7 +17,7 @@ const user = {
 
 export default function User() {
   // const [isClient, setIsClient] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   // useEffect(() => {setIsClient(true)}, []);
 

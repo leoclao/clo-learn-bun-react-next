@@ -7,21 +7,18 @@ interface Props {
   colSpan?: string | undefined;
 }
 
-const Col: React.FC<Props> = ({
+export default function Col({
   children,
   colSpan
-}) => {
+}: Props) {
   const className = clsx(
     !colSpan && styles.base,
     !!colSpan && styles[`span${colSpan}`]
   );
-
-  // return (Children.map(children, child =>
-  //   <div className={baseClass}>{child}</div>
-  // ));
+  
   return (
     <div className={className}>{children}</div>
   );
 }
 
-export default Col;
+// export default Col;
