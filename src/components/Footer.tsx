@@ -1,14 +1,19 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
+type MyRef = HTMLElement;
 interface Props {
-  className: string,
-  children: React.ReactElement,
+  className: string;
+  content: React.ReactNode;
 }
 
-export default function Footer({ className, children }: Props) {
+// export default function Footer({ className, children }: Props) {
+const Footer = forwardRef<MyRef, Props>(function Footer(props: Props, ref: React.Ref<MyRef>): React.ReactElement {
   return (
-    <header className={className}>
-      {children}
-    </header>
+    <footer className={props.className} ref={ref}>
+      {props.content}
+    </footer>
   );
 }
+);
+
+export default Footer;
