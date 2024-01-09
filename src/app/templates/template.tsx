@@ -3,17 +3,18 @@
 import { useEffect } from "react";
 import Components from '@/components';
 
-export default function Template({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    console.log("Log page view");
-  }, []);
+export default function Template({ children, headerRef, headerClass, footerRef }: { children: React.ReactNode }) {
+  // useEffect(() => {
+  //   console.log("Log page view");
+  // }, []);
+  // const headerRef = useRef();
 
   return (
     <Components.ThemeProviders>
       <div className="wrapper">
-        <Components.Header className="header" content="Header" />
+        <Components.Header className={headerClass} content="Header" ref={headerRef} />
         {children}
-        <footer>footer</footer>
+        <Components.Footer className="footer" ref={footerRef} content="Footer" />
       </div>
     </Components.ThemeProviders>
   );
